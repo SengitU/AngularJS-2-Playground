@@ -1,0 +1,63 @@
+<div class="container">
+    <h1>Bank Application Form</h1>
+    <form (ngSubmit)="onSubmit()" #applicationForm="ngForm">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <select class="form-control" id="title"
+                required
+                [(ngModel)]="application.title"
+                name="title"
+                #title="ngModel">
+          <option *ngFor="let title of titles" [value]="title">{{title}}</option>
+        </select>
+        <!-- <div [hidden]="!!title && (title.valid || title.pristine)" class="alert alert-danger">
+          Title is required
+        </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text"
+               class="form-control"
+               id="firstName"
+               [(ngModel)]="application.firstName"
+               name="firstName"
+               required>
+        <!-- <div [hidden]="!!firstName && (firstName.valid || firstName.pristine)" class="alert alert-danger">
+          First name must between 3 - 10 characters
+        </div> -->
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text"
+               class="form-control"
+               id="lastName"
+               [(ngModel)]="application.lastName"
+               name="lastName"
+               required>
+         <!-- <div [hidden]="!!lastName && (lastName.valid || lastName.pristine)" class="alert alert-danger">
+          Last name must between 2 - 20 characters
+        </div> -->
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text"
+               class="form-control"
+               id="email"
+               [(ngModel)]="application.email"
+               name="email"
+               required>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>
+
+  <!-- title: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  birthday: Date;
+  zipCode: Number;
+  street: string; -->
